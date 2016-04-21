@@ -4012,14 +4012,10 @@ a:hover {
 -----------------------------------------*/
 
 .post-list article {
-	border: 1px solid #eaeaea;
-	border-bottom: 4px solid #eaeaea;
-	float: left;
 	width: 100%;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	padding: 10px;
 	margin-bottom: 40px;
 }
 
@@ -4090,7 +4086,7 @@ a:hover {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: rgba(255,162,0,1.00);
+	background: rgba(0,0,0,0.6);
 	padding: 16px 20px;
 	text-align: center;
 	min-width: 90px;
