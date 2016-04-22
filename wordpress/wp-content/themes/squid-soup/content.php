@@ -8,6 +8,8 @@
 
 	<header class="entry-header">
 
+        
+        <p>gageageaga</p>
 			<div class="post-img-wrap">
 			 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 
