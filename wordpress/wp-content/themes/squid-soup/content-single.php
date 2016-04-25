@@ -1,13 +1,71 @@
-<?php
-/**
- * @package azera-shop
- */
-?>
+<style>
+    #header1 {
+        text-align: center;
+        margin-bottom: 10px;
+        color: white;
+    }
+    
+    #headerContainer {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+    
+    #headerContainer img {
+        position: relative;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        padding-bottom: 500px;
+    }
+    
+    #headerImageContainer {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 250px;
+        overflow: hidden;
+    }
+    
+    #headerTextContaier {
+        position: relative;
+/*        padding-top: 20px;*/
+        top: 0px;
+    }
+</style>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('content-single-page'); ?>>
 	<header class="entry-header single-header">
-		<?php the_title( '<h1 itemprop="headline" class="entry-title single-title">', '</h1>' ); ?>
-		<div class="colored-line-left"></div>
+        
+        <div id="headerContainer">
+        <div id="parralax">
+            <div id="headerTextContaier">
+<!--                <h1 id="header1">Beautiful, Interative Artwork</h1>-->
+                <?php the_title( '<h1 itemprop="headline" id="header1">', '</h1>' ); ?>
+            </div>
+            <div id="headerImageContainer">
+                <?php 
+                            if ( has_post_thumbnail() ) {
+                            
+                                $image_id = get_post_thumbnail_id();
+                                $image_url_big = wp_get_attachment_image_src($image_id,'headerImage', true);
+                                $image_url_mobile = wp_get_attachment_image_src($image_id,'headerImage', true);
+                        ?>  
+                                <picture itemscope itemprop="image">
+                                    <source media="(max-width: 600px)" srcset="<?php echo esc_url($image_url_mobile[0]); ?>">
+                                    <img id="headerImage" src="<?php echo esc_url($image_url_big[0]); ?>" alt="<?php     the_title_attribute(); ?>">
+                                </picture>
+                        <?php
+        	                 } 
+                        ?>
+            </div>
+        </div>    
+    </div>
+        
+        
+		
+<!--		<div class="colored-line-left"></div>-->
 		<div class="clearfix"></div>
 
 		<div class="entry-meta single-entry-meta">
@@ -16,6 +74,7 @@
 					<i class="fa fa-user" aria-hidden="true"></i><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' )); ?>" itemprop="url" rel="author"><?php the_author(); ?></a>
 				</span>
         	</span>
+            
 			<time class="post-time posted-on published" datetime="<?php the_time('c'); ?>" itemprop="datePublished">
 				<i class="fa fa-clock-o" aria-hidden="true"></i><?php the_time( get_option('date_format') ); ?>
 			</time>
@@ -39,3 +98,32 @@
 		<?php azera_shop_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+        
+        $(window).on('load', function() {
+            var howFarScrolled = "";
+            
+            $("#headerTextContaier").css("padding-top", ($("#headerContainer").height()/2) - ($("#headerTextContaier").height()/2));
+//            $("#headerContainer").css("height", $("#headerImage").height());
+//            $("#headerImageContainer").css("height", $("#headerImage").height());
+            
+            $(window).scroll(function() {
+                howFarScrolled = $(document).scrollTop();
+                
+                $("#headerImage").css("top", howFarScrolled / 2);
+                $("#headerTextContaier").css("top", howFarScrolled / 3);
+            });
+        });
+        
+        $(document).ready(function() {
+            $(window).resize(function() {
+                console.log("resizing");
+                $("#headerTextContaier").css("padding-top", ($("#headerImage").height()/2) - ($("#headerTextContaier").height()/2));
+                $("#headerContainer").css("height", $("#headerImage").height());
+                $("#headerImageContainer").css("height", $("#headerImage").height());
+            })
+        })
+    
+    </script>

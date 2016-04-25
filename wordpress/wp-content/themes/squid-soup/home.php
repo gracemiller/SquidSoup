@@ -20,39 +20,10 @@
 </header>
 <!-- /END HOME / HEADER  -->
 
-<?php
-$azera_shop_blog_header_image = get_theme_mod( 'azera_shop_blog_header_image', azera_shop_get_file('/images/background-images/background.jpg') );
-$azera_shop_blog_header_title = get_theme_mod( 'azera_shop_blog_header_title', esc_html__('BLOG','azera-shop')  );
-$azera_shop_blog_header_subtitle = get_theme_mod( 'azera_shop_blog_header_subtitle' );
-
-if( !empty($azera_shop_blog_header_image) || !empty($azera_shop_blog_header_title) || !empty($azera_shop_blog_header_subtitle) ) {
-
-	if( !empty($azera_shop_blog_header_image) ) {
-		echo '<div class="archive-top" style="background-image: url('.$azera_shop_blog_header_image.');" role="banner">';
-	} else {
-		echo '<div class="archive-top" role="banner">';
-	}
-		echo '<div class="section-overlay-layer">';
-			echo '<div class="container">';
-				if( !empty($azera_shop_blog_header_title) ) {
-					echo '<p class="archive-top-big-title">'.$azera_shop_blog_header_title.'</p>';
-					echo '<p class="colored-line"></p>';
-				}
-
-				if( !empty($azera_shop_blog_header_subtitle) ) {
-					echo '<p class="archive-top-text">'.$azera_shop_blog_header_subtitle.'</p>';
-				}
-			echo '</div>';
-		echo '</div>';
-	echo '</div>';
-
-}
-
-?>
-
 <div role="main" id="content" class="content-warp">
-	<div class="container">
-		<div id="primary" class="content-area col-md-8 post-list">
+	<div class="" style="width: 100%;">
+		<div id="primary" class="content-area col-md-12 post-list" style="padding: 0;">
+            <h1 style="margin-top:0; margin-left:7.5%">Blog</h1>
 			<main <?php if(have_posts()) echo 'itemscope itemtype="http://schema.org/Blog"'; ?> id="main" class="site-main" role="main">
 
 				<?php if ( have_posts() ) : ?>
@@ -82,3 +53,48 @@ if( !empty($azera_shop_blog_header_image) || !empty($azera_shop_blog_header_titl
 </div><!-- .content-wrap -->
 
 <?php get_footer(); ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        
+        $.each($('.articleAnimationContainer'), function(i, el){
+            console.log($(el).offset().top);
+            $(el).css('right', $(window).width());
+            $(el).css('width', $(window).width());
+    
+            if ($(el).offset().top < $(window).height()) {
+            
+                setTimeout(function(){
+                    $(el).animate({
+                        'right': 0
+                    }, 450, function() {
+                        $(el).css("width", "");
+                    });
+                },500 + ( i * 500 ));
+                
+            }
+    
+        });
+                
+    })
+    
+    $(document).scroll(function() {
+        console.log("scrolling");
+        console.log($(window).height() + $(document).scrollTop());
+        $.each($('.articleAnimationContainer'), function(i, el){
+    
+            if ($(el).offset().top < $(window).height() + $(document).scrollTop() - 75) {
+                $(el).css('width', $(window).width());
+            
+                    $(el).animate({
+                        'right': 0
+                    }, 450, function() {
+                        $(el).css("width", "");
+                    });
+                
+            }
+    
+        });
+    })
+</script>
