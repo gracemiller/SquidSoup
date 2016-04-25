@@ -95,6 +95,7 @@ body {
 	text-align: left;
 	overflow-x: hidden !important;
 	margin: auto !important;
+    background-color: black;
 }
 
 .azera_shop_only_customizer {
@@ -141,7 +142,7 @@ a:hover {
 }
 
 a:focus {
-	outline: 1px dotted rgba(255,162,0,1.00);
+	outline: 1px dotted rgba(255,30,126,1.00);
 	text-decoration: none;
 }
 
@@ -187,7 +188,7 @@ a:focus {
 }
 
 .navbar-inverse .navbar-nav > li > a:focus {
-	color: rgba(255,162,0,1.00);
+	color: black;
 	outline: 1px solid rgba(255,162,0,1.00);
 	outline-style: dotted;
 }
@@ -924,7 +925,6 @@ p.site-description {
 
 /* STICKY NAVIGATION AND LOGO */
 #menu-primary {
-	float: right;
     padding: 15px 0;
 }
 
@@ -944,7 +944,7 @@ header .navbar-brand {
 }
 
 .sticky-navigation {
-    background: #ffffff;
+    background: #1a1a1a;
     min-height: 70px;
     border: none;
     font-weight: 400;
@@ -968,6 +968,7 @@ header .navbar-brand {
 	margin: 0;
 	padding: 5px 18px;
 	font-weight: bold;
+    color: white;
 }
 
 .sticky-navigation .main-navigation .sub-menu li a {
@@ -1001,7 +1002,7 @@ header .navbar-brand {
 
 .main-navigation {
 	font-family: Montserrat, sans-serif;
-	text-align: right;
+	text-align: center;
 }
 
 .site-footer .main-navigation {
@@ -1186,6 +1187,7 @@ header .navbar-brand {
 
 .header-nav-wrap {
 	display: table-cell;
+    text-align: left;
 	vertical-align: middle;
 }
 
@@ -1925,6 +1927,7 @@ Header Cart
 .page-template-template-contact-php .content-wrap > .container {
 	width: 100%;
 	padding: 0;
+    background-color: black;
 }
 
 .page-template-template-contact-php #primary {
@@ -2005,7 +2008,6 @@ div.wpcf7-mail-sent-ng {
 .archive-top .section-overlay-layer {
 	padding-top: 100px;
 	padding-bottom: 100px;
-	background: rgba(13, 60, 85, 0.6);
 }
 
 .archive-top {
@@ -3906,7 +3908,7 @@ footer.footer .team-member-box .team-member {
 /* NAVBAR AND LINK COLORS */
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-	color: rgba(255,162,0,1.00);
+	color: rgba(255,30,126,1.00);
 }
 
 a {
@@ -3914,7 +3916,7 @@ a {
 }
 
 a:hover {
-	color: rgba(255,162,0,1.00);
+	color: rgba(255,30,126,1.00);
 }
 
 .border-bottom-hover:hover {
@@ -3923,7 +3925,7 @@ a:hover {
 
 .sticky-navigation .main-navigation li a:hover,
 .sticky-navigation .login-register li.login a:hover {
-	color: rgba(255,162,0,1.00);
+	color: rgba(255,30,126,1.00);
 	text-decoration: none;
 }
 
