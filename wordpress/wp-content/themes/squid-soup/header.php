@@ -15,6 +15,45 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php wp_head(); ?>
 </head>
+<style>
+    .socialicon {
+        transition: 0.5s ease; 
+        height:30px; 
+        margin:25px 10px;
+    }
+    .socialicon:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+    #topnavbg {
+        width:100vw; 
+        height:80px; 
+        background-color:#131313;   
+    }
+    #socialbar {
+        height:80px; 
+        display:inline-block; 
+        float:right;
+        margin:auto; 
+        vertical-align:middle;
+    }
+    #squidlogo {
+        height:60px;
+        display:inline-block;
+        vertical-align:middle;
+    }
+    @media screen and (max-width: 666pt) {
+        #squidlogo {
+            display: none;   
+        }
+        #socialbar {
+            float:none;
+            text-align:center;
+            margin:auto; 
+            width:100%;
+        }
+    }
+</style>
 
 <body itemscope itemtype="http://schema.org/WebPage" <?php body_class(); ?> dir="<?php if (is_rtl()) echo "rtl"; else echo "ltr"; ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'azera-shop' ); ?></a>
@@ -67,13 +106,41 @@
 			}
         ?>
 		<div class="overlay-layer-nav <?php if(!empty($fixedheader)) {echo esc_attr($fixedheader);} ?>">
-
+            
             <!-- STICKY NAVIGATION -->
             <div class="navbar navbar-inverse bs-docs-nav navbar-fixed-top sticky-navigation appear-on-scroll">
 				<!-- CONTAINER -->
-                <div class="container">
-				
-
+                <div class="container" style="margin:0px; padding: 0px; width:100vw">
+                    
+                    <div id="topnavbg">
+                        
+                        <div style="width:66vw; margin:auto; padding: 0px; text-align:left">
+                            
+                            
+                            <div id="squidlogo">
+                                <img src="/squidsoup.png" style="height:60px; margin: 10px 20px">
+                            </div>
+    
+                            
+                            <div id="socialbar">
+                                <a href="http://www.facebook.com/" target="_blank">
+                                    <img src="/facebook.png" class="socialicon">
+                                </a>
+                                <a href="http://www.twitter.com/" target="_blank">
+                                    <img src="/twitter.png" class="socialicon">
+                                </a>
+                                <a href="http://www.flickr.com/" target="_blank">
+                                    <img src="/flickr.png" class="socialicon">
+                                </a>
+                                <a href="http://www.vimeo.com/" target="_blank">
+                                    <img src="/vimeo.png" class="socialicon" style="margin-right:0px">
+                                </a>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
 
 					<div class="header-container-wrap">
 
@@ -82,7 +149,7 @@
 							<div itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="<?php esc_html_e('Primary Menu','azera-shop') ?>" id="menu-primary" class="navbar-collapse collapse">
 								<!-- LOGO ON STICKY NAV BAR -->
 								<div id="site-header-menu" class="site-header-menu">
-									<nav id="site-navigation" class="main-navigation" role="navigation">
+									<nav id="site-navigation" class="main-navigation" role="navigation" style="background-color:#272727">
 									<?php 
 										wp_nav_menu( 
 											array( 
@@ -98,36 +165,8 @@
 		                    </div><!-- .navbar-collapse -->
 		                </div><!-- .header-nav-wrap -->
 
-						<?php if( class_exists( 'WooCommerce' ) ) { ?>
-							<div class="header-icons-wrap">
-								
-								<div class="header-search">
-									<div class="fa fa-search header-search-button"></div>
-									<div class="header-search-input">
-										<form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/'  ) ); ?>">
-											<input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search Products&hellip;', 'placeholder', 'azera-shop' ); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label', 'azera-shop' ); ?>" />
-											<input type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'azera-shop' ); ?>" />
-											<input type="hidden" name="post_type" value="product" />
-										</form>
-									</div>
-								</div>
-
-								<?php if( function_exists( 'WC' ) ) { ?>
-									<div class="navbar-cart-inner">
-										<a href="<?php echo WC()->cart->get_cart_url() ?>" title="<?php _e( 'View your shopping cart','azera-shop' ); ?>" class="cart-contents">
-											<span class="fa fa-shopping-cart"></span>
-											<span class="cart-item-number"><?php echo trim( WC()->cart->get_cart_contents_count() ); ?></span>
-										</a>
-									</div>
-								<?php } ?>
-
-							</div>
-						<?php } ?>
-
 					</div><!--  -->
 
-
-					
                 </div>
                 <!-- /END CONTAINER -->
             </div>

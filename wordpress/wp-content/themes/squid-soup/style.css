@@ -95,7 +95,6 @@ body {
 	text-align: left;
 	overflow-x: hidden !important;
 	margin: auto !important;
-    background-color: black;
 }
 
 .azera_shop_only_customizer {
@@ -283,7 +282,7 @@ h1.single-title {
 	font-size: 24px;
 	line-height: 28px;
 	text-transform: uppercase;
-	color: #000;
+	color: #fff;
 	margin-top: 0;
 }
 
@@ -681,7 +680,7 @@ big {
 .grey-bg {
 	border-top: 1px solid #eaebec;
 	border-bottom: 1px solid #eaebec;
-	background: #F7F8FA;
+	background: #efefef;
 }
 
 .dark-bg {
@@ -925,7 +924,9 @@ p.site-description {
 
 /* STICKY NAVIGATION AND LOGO */
 #menu-primary {
-    padding: 15px 0;
+    padding: 0px;
+    width: 100vw;
+    margin: auto;
 }
 
 .appear-on-scroll {
@@ -964,10 +965,9 @@ header .navbar-brand {
 
 .sticky-navigation .main-navigation li a {
     text-transform: uppercase;
-	line-height: 18px;
-	margin: 0;
-	padding: 5px 18px;
-	font-weight: bold;
+    line-height: 40px;
+    margin: 0;
+    padding: 0px 18px;
     color: white;
 }
 
@@ -978,7 +978,7 @@ header .navbar-brand {
 .sticky-navigation .main-navigation a {
 	display: block;
 	text-decoration: none;
-	text-align: left;
+	text-align: center;
 	color: #313131;
 }
 
@@ -1042,6 +1042,10 @@ header .navbar-brand {
 
 .main-navigation .primary-menu {
 	border-bottom: 1px solid #e8e8e8;
+}
+
+.primary-menu li {
+    margin: 0px 25px;   
 }
 
 .main-navigation .menu-item-has-children > a {
@@ -1166,7 +1170,7 @@ header .navbar-brand {
 
 .sticky-navigation-open {
 	min-height: 70px;
-	background: transparent;
+	background-color: black;
 }
 
 .primary-menu {
@@ -3608,8 +3612,8 @@ div.bbp-forum-header, div.bbp-topic-header, div.bbp-reply-header, li.bbp-body di
    3.17 SECTION: FOOTER
 -----------------------------------------*/
 .footer {
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding: 0px;
+	height: 60px;
 }
 
 .footer-links li {
@@ -3989,7 +3993,7 @@ a:hover {
 .colored-line-left,
 .colored-line-right,
 .colored-line {
-	background: rgba(255,162,0,1.00);
+	display: none;
 }
 
 .border-right-colored {
@@ -4028,7 +4032,7 @@ a:hover {
 .post-img-wrap {
 	position: relative;
 	min-height: 150px;
-	background-color: rgb(234, 234, 234);
+	background-color: black;
 }
 
 .list-post-entry-meta {
@@ -4062,6 +4066,7 @@ a:hover {
 .post-list h1.entry-title {
 	margin-top: 10px;
 	margin-bottom: 5px;
+    color: white;
 }
 
 .post-list h1.entry-title a {
@@ -4225,7 +4230,7 @@ a:hover {
 .entry-content p,
 .entry-content span {
 	font-weight: 400;
-	color: #666666;
+	color: #fff;
 	font-size: 16px;
 	line-height: 26px;
 }
@@ -4271,8 +4276,10 @@ a:hover {
 }
 
 #primary {
-	margin: 50px 0;
+	margin: 0px 0;
 	padding-right: 15px;
+    background-color: black;
+    color: transparent;
 }
 
 #sidebar-secondary {
@@ -5255,10 +5262,6 @@ h2.screen-reader-text {
 	#sidebar-secondary {
 	  float: left;
 	  width: 100%;
-	}
-
-	.entry-header .colored-line-left {
-		float: left;
 	}
 
 	.service-box {

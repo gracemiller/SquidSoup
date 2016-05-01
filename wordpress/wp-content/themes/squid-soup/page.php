@@ -19,10 +19,10 @@
 <!-- /END HOME / HEADER  -->
 
 
-<div class="content-wrap">
-	<div class="container">
+<div class="content-wrap" style="background-color:black; color:white">
+	<div class="container" style="width:100vw; padding:0px; margin:0px">
 
-		<div id="primary" class="content-area col-md-12">
+		<div id="primary" class="content-area col-md-12" style="margin-top:40px; padding:0px">
 			<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
