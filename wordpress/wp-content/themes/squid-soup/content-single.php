@@ -3,21 +3,22 @@
         text-align: center;
         margin-bottom: 10px;
         color: white;
+        display: inline-block;
     }
     
     #headerContainer {
         width: 100%;
         height: 250px;
+        position: relative;
         overflow: hidden;
     }
     
-    #headerContainer img {
+    #headerContainerImage {
         position: relative;
         width: 100%;
         top: 0px;
         left: 0px;
         z-index: -1;
-        padding-bottom: 500px;
     }
     
     #headerImageContainer {
@@ -33,17 +34,110 @@
 /*        padding-top: 20px;*/
         top: 0px;
     }
+    
+    #navContainer {
+        position: relative;
+        z-index: 20;
+    }
+    
+     #rightNavArrow {
+         position: relative;
+         width: 50px;
+         display: inline-block;
+         float: right;
+         height: 0px;
+    }
+            
+     #leftNavArrow {
+         position: relative;
+         width: 50px;
+         display: inline-block;
+         height: 0px;
+    }
+    
+     #leftNavArrow:hover {
+         opacity: 0.5;
+    }
+    
+     #rightNavArrow:hover {
+         opacity: 0.5;
+    }
+    
+    .navArrows {
+        height: 100px;
+        width: 5%;
+        display: inline-block;
+        vertical-align: top;
+        z-index: 10;
+        transition: all 0.3s;
+    }
+    
+    .navArrows:hover {
+        opacity: 0.5;
+        
+    }
+    
+    #title {
+        display: inline-block;
+        width: 89%;
+        height: 100px;
+        vertical-align: middle;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        color: white;
+    }
+    
+    #titleNoArrows {
+/*        display: inline-block;*/
+        width: 100%;
+/*        height: 100px;*/
+/*        vertical-align: middle;*/
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        color: white;
+    }
+    
+    
 </style>
 
+ 
 <article id="post-<?php the_ID(); ?>" <?php post_class('content-single-page'); ?>>
+
 	<header class="entry-header single-header">
+        
+       
         
         <div id="headerContainer">
         <div id="parralax">
             <div id="headerTextContaier">
-<!--                <h1 id="header1">Beautiful, Interative Artwork</h1>-->
-                <?php the_title( '<h1 itemprop="headline" id="header1">', '</h1>' ); ?>
+                
+                <?php 
+     
+                    $categories = get_the_category();
+ 
+                    if ( ! empty( $categories ) ) {
+                        
+                        if (esc_html( $categories[0]->name ) == "Projects") { ?>
+                            <div id="navContainer">
+                                <?php previous_post_link( '%link', '<img class="navArrows" src="images/leftarrow.png">', TRUE ); ?>
+                                
+                                <?php the_title( '<h1 itemprop="headline" id="title">', '</h1>' ); ?>
+                                
+                                <?php next_post_link( '%link', '<img class="navArrows" src="images/rightarrow.png">', TRUE ); ?>
+    
+    
+                            </div> <?php   
+                        } else {
+                            the_title( '<h1 itemprop="headline" id="titleNoArrows">', '</h1>' );
+                        }   
+                    } 
+                ?>
+                
             </div>
+            
+            
             <div id="headerImageContainer">
                 <?php 
                             if ( has_post_thumbnail() ) {

@@ -1,3 +1,6 @@
+<?php
+	get_header(); 
+?>
 <style>
     #articleContainer {
         width: 100%;
@@ -56,17 +59,8 @@
     }
 </style>
 
-
-
-
-
-
-
-
-
 <article id="post-<?php the_ID(); ?>" <?php post_class('border-bottom-hover'); ?> itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
     <header class="entry-header">
-    <hr>
             
     <div class="post-img-wrap">
             
